@@ -8,8 +8,8 @@
 ## Workflow
 1. Pick a ClickUp task and create a short-lived branch such as `feature/s2-pdf-ingestion` or `fix/citation-pages`.
 2. Make focused commits and include the ClickUp task link in the pull request.
-3. Describe the change, acceptance criteria checked, validation evidence and known limitations.
-4. Request Oussema's review for Lina's work. Do not merge until Oussema approves. For Oussema's own changes, request Lina's peer review.
+3. Before requesting review, run the tests relevant to the change. Verify each ClickUp acceptance criterion and record the test command or manual steps, expected result, actual result, and evidence in the PR. Explain any checks you skipped and why. Keep the PR in draft if acceptance criteria are unmet.
+4. Link the PR back to the task. Move the task to **To Check** if that status is available. The reviewer moves it to **In Review** when verification starts. Request Oussema's review for Lina's work. Do not merge until Oussema approves. For Oussema's own changes, request Lina's peer review.
 5. Oussema checks compatibility with the integrated application and merges into `main` after review and passing checks. Avoid direct feature commits to `main`.
 6. Link the merged PR to ClickUp and mark the task complete only after integration verification.
 

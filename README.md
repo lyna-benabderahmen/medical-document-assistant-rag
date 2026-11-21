@@ -1,9 +1,11 @@
 # Medical Document Assistant Using RAG
 
-Doctoline academic Project 05. **Prototype — not for medical use.**
+Academic RAG project for answering questions from approved documents. **Planning stage; not for medical use.**
 
 ## Goal
-Answer staff questions using only an approved corpus of 20–30 public or approved documents. Return short answers with document/page citations and abstain when the evidence is absent.
+Build a document assistant that answers staff questions using only an approved corpus of 20–30 public or approved documents. It should return short answers with document and page citations, and abstain when evidence is absent.
+
+**Current status:** This repository contains the project plan and architecture. The working prototype and evaluation results are not available yet.
 
 ## Team
 - **Oussema Braham**: ingestion, indexing, retrieval, code review and final integration. Reviews Lina's PRs and performs merges after validation.

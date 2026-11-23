@@ -10,6 +10,8 @@ __pycache__/
 .streamlit/secrets.toml
 data/raw/
 data/index/
+data/extracted/
+data/evaluation-results/
 *.faiss
 .DS_Store
 Thumbs.db

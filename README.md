@@ -5,7 +5,7 @@ Academic RAG project for answering questions from approved documents. **Planning
 ## Goal
 Build a document assistant that answers staff questions using only an approved corpus of 20–30 public or approved documents. It should return short answers with document and page citations, and abstain when evidence is absent.
 
-**Current status:** This repository contains the project plan and architecture. The working prototype and evaluation results are not available yet.
+**Current status:** Ingestion, page-local chunking, versioned cosine indexing, retrieval, calibration and retrieval evaluation are implemented on a feature branch. The approved corpus, answer generation, interface, final evaluation and release are not available yet.
 
 ## Team
 - **Oussema Braham**: ingestion, indexing, retrieval, code review and final integration. Reviews Lina's PRs and performs merges after validation.
@@ -30,7 +30,7 @@ Project start: **2 November 2026**. Final delivery: **13 December 2026**. Offici
 ## Planned implementation
 Proposed baseline: Python 3.11, Streamlit, pypdf, Sentence Transformers, local Chroma with cosine distance, an approved instruction model through an Ollama adapter, Pydantic, pytest and Ruff. JSONL/CSV store manifests and evaluation outputs. Exact dependency/model versions are validated and pinned in Sprint 1.
 
-See the [technical stack and architecture](docs/TECHNICAL_ARCHITECTURE.md) for the system diagram, module ownership, data contracts, chunking/retrieval settings, citation checks, abstention, testing and sprint implementation details. The repository contains planning and collaboration documents; the prototype is not implemented yet.
+See the [technical stack and architecture](docs/TECHNICAL_ARCHITECTURE.md) for the system diagram and the [setup guide](docs/SETUP.md) for the implemented retrieval commands. [Scope and decisions](docs/SCOPE_AND_DECISIONS.md) distinguishes implemented behavior from pending work.
 
 ## Evaluation targets
 60 questions, including 15 without answers in the corpus. Target >=90% correct sources, >=90% supported answers and >=85% correct abstention. Report raw counts and denominators; keep tuning examples separate from final evaluation. These are targets, not achieved results.

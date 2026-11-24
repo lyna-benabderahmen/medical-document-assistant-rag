@@ -30,9 +30,7 @@ def write_json(path: Path, content: dict) -> None:
 
 
 def run(args: argparse.Namespace, questions: list[dict]) -> None:
-    from rag_assistant.generation import OllamaModel
-    from rag_assistant.pipeline import AnswerPipeline
-
+    from rag_assistant import generation, pipeline
     from rag_assistant.embeddings import Encoder
     from rag_assistant.index import collection_name
     from rag_assistant.ingestion import load_manifest
@@ -64,16 +62,16 @@ def run(args: argparse.Namespace, questions: list[dict]) -> None:
         "top_k": args.top_k,
         "max_distance": args.max_distance,
     }
-    pipeline = AnswerPipeline(
+    assistant = pipeline.AnswerPipeline(
         args.index_dir,
         args.corpus_version,
         args.manifest,
         Encoder(),
-        OllamaModel(args.model),
+        generation.OllamaModel(args.model),
         max_distance=args.max_distance,
         top_k=args.top_k,
     )
-    rows = run_questions(questions, pipeline.answer_with_trace)
+    rows = run_questions(questions, assistant.answer_with_trace)
     timings = sorted(row["latency_ms"] for row in rows)
     config["median_latency_ms"] = statistics.median(timings)
     config["p95_latency_ms"] = timings[math.ceil(0.95 * len(timings)) - 1]
